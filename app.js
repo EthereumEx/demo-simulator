@@ -20,7 +20,7 @@ web3.eth.getAccounts(function (err, result){
     throw error;
   }
 
-  var accountAddress = result[0]
+  var accountAddress = result[1]
   if(!accountAddress) {
     throw new Error('No account was found');
   }
