@@ -1,0 +1,15 @@
+{
+  "name": "demo-simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.3.3",
+    "web3": "^0.17.0-beta"
+  }
+}
