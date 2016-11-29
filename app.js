@@ -9,36 +9,42 @@ var referenceIds = require('./reference-ids')
 
 var web3 = new Web3();
 require('./config/web3')(web3, config);
+
 BookingFactory.setProvider(web3.currentProvider);
-
-// Needs attention
-var bookingFactory = BookingFactory.at('0x22444F54DF8e7791Ee028fE5785D2D1bdA9E1Ed0');
+var bookingFactory = BookingFactory.at(config.address);
 
 
-    bookingFactory.updateBooking('0ICDX', 700, {from: '0x47aba09257c91e015903f1608b2b4ed245ed8264'})
-      .then(function(tx_id) {
-        debug(tx_id);
-      }).catch(function(e) {
-        debug(e);
-      });
+web3.eth.getAccounts(function (err, result){
+  if(err) {
+    console.error(error);
+    throw error;
+  }
+
+  var accountAddress = result[0]
+  if(!accountAddress) {
+    throw new Error('No account was found');
+  }
+
+  debug('Using account: ', accountAddress);
+  setInterval(updateContracts(accountAddress), config.interval);
+});
 
 
-function updateContracts() {
-  // for (var i = 0; i < randomInt(2, 5); ++i) {
+function updateContracts(accountAddress) {
+  return function() {
+  for (var i = 0; i < config.batchSize; ++i) {
     var id = randomReference();
-    // needs attention
-    var price = randomInt(100, 1000);
+    var price = randomInt(config.minPrice, config.maxPrice);
     debug(id, price);
 
-    // needs attention
-    bookingFactory.updateBooking(id, price, {from: '0x47aba09257c91e015903f1608b2b4ed245ed8264'})
+    bookingFactory.updateBooking(id, price, {from: accountAddress, gas: 500000})
       .then(function(tx_id) {
-        debug(tx_id);
+        console.log(tx_id);
       }).catch(function(e) {
-        debug(e);
+        console.error(e);
       });
-
-  // }
+    }
+  }
 }
 
 /**
@@ -54,5 +60,3 @@ function randomReference() {
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
-// setInterval(updateContracts, 10000);
