@@ -20,7 +20,7 @@ web3.eth.getAccounts(function (err, result){
     throw error;
   }
 
-  var accountAddress = result[1]
+  var accountAddress = result[0]
   if(!accountAddress) {
     throw new Error('No account was found');
   }
@@ -37,7 +37,7 @@ function updateContracts(accountAddress) {
     var price = randomInt(config.minPrice, config.maxPrice);
     debug(id, price);
 
-    bookingFactory.updateBooking(id, price, {from: accountAddress, gas: 500000})
+    bookingFactory.updateBooking(id, price, {from: accountAddress, gas: 1000000})
       .then(function(tx_id) {
         console.log(tx_id);
       }).catch(function(e) {

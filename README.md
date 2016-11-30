@@ -8,7 +8,7 @@ $ npm install
 ```
 ## Environment Variables
 ```bash
-export CONTRACT_ADDRESS=0x22444F54DF8e7791Ee028fE5785D2D1bdA9E1Ed0 (or the address of the deployed notification contract)
+export CONTRACT_ADDRESS=0xF100dceD26e7F1F976663b29D2031AC615545672 (or the address of the deployed notification contract)
 export INTERVAL=<The interval for sending transactions in ms (optional - default 30000)>
 export MIN_PRICE=<Minimum random price (optional - default 100)>
 export MAX_PRICE=<Maximum random price (optional - default 1000)>
@@ -41,7 +41,7 @@ Then:
 export DEBUG=demo-simulator
 $ node app.js
 or
-$ npm start 
+$ npm start
 ```
 
 To compile contracts:

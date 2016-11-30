@@ -4,8 +4,8 @@ import 'NotificationService.sol';
 
 contract Booking is usingNotificationService {
 
-  address seller = 0x47aba09257C91E015903F1608B2B4Ed245ed8264;
-  address buyer = 0xC4c48A2E214f69b256edE4F5fAfec5C6E896Fe07;
+  address seller = 0xdd0cb8479d4f43db630ebd150dd017664200c63e;
+  address buyer = 0x71eecb0ae61b76b7e231e364561733f7ef9b9424;
   uint buyerPrice;
   uint sellerPrice;
   string referenceId;

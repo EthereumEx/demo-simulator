@@ -13,7 +13,7 @@ var config = {
       host: process.env.RPC_HOST || 'http://localhost',
       port: process.env.RPC_PORT || '8545'
     },
-    address: process.env.CONTRACT_ADDRESS || '0x22444F54DF8e7791Ee028fE5785D2D1bdA9E1Ed0',
+    address: process.env.CONTRACT_ADDRESS || '0xF100dceD26e7F1F976663b29D2031AC615545672',
     interval: process.env.INTERVAL || 30000,
     minPrice: process.env.MIN_PRICE || 100,
     maxPrice: process.env.MAX_PRICE || 1000,
